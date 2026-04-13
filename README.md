@@ -7,7 +7,7 @@ A comprehensive agricultural management and marketplace platform designed to emp
 - [Project Overview](#project-overview)
 - [Features](#features)
 - [Modules](#modules)
-- [Documentation](#documentation)
+- [Architecture](#architecture)
 - [Getting Started](#getting-started)
 - [Contribution Guidelines](#contribution-guidelines)
 - [Team](#team)
@@ -84,70 +84,50 @@ Oversees investment opportunities and capital management.
 - Returns calculation and distribution
 - Investment portfolio management
 
-## 📚 Documentation
+## 🧱 Architecture
 
-### Project Documentation
-- **[Architecture Documentation](./docs/architecture.md)** - System design and architecture
-- **[API Documentation](./docs/api.md)** - RESTful API endpoints and specifications
-- **[Database Schema](./docs/database.md)** - Database structure and relationships
-- **[Setup Guide](./docs/setup.md)** - Installation and configuration instructions
-
-### Module Documentation
-- **[Management Module Guide](./docs/modules/management.md)** - Detailed module documentation
-- **[Marketplace Module Guide](./docs/modules/marketplace.md)** - Marketplace features and usage
-- **[Investment Module Guide](./docs/modules/investment.md)** - Investment management guide
-
-### Developer Resources
-- **[Development Environment Setup](./docs/development-setup.md)** - Local development guide
-- **[Code Style Guide](./docs/code-style.md)** - Coding standards and conventions
-- **[Testing Guidelines](./docs/testing.md)** - Unit testing and integration testing
+- **Backend:** ASP.NET Core MVC Web API (`backend/AgriPro.Api`)
+- **Frontend:** React + Vite (`frontend`)
+- **Database:** SQL Server (configured via `appsettings.json`)
 
 ## 🚀 Getting Started
 
 ### Prerequisites
-- Node.js (v16 or higher)
-- npm or yarn package manager
-- MongoDB or PostgreSQL
-- Git
+- .NET 8 SDK
+- Node.js (v18 or higher)
+- SQL Server (local or containerized)
 
-### Installation
+### Backend Setup
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/3li-mo7sen/Agri-Pro.git
-   cd Agri-Pro
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Configure environment variables**
-   ```bash
-   cp .env.example .env
-   # Edit .env with your configuration
-   ```
-
-4. **Set up the database**
-   ```bash
-   npm run db:setup
-   ```
-
-5. **Start the application**
-   ```bash
-   npm start
-   ```
-
-### Running Tests
 ```bash
-npm test
+cd backend/AgriPro.Api
+
+dotnet restore
+
+dotnet run
 ```
 
-### Building for Production
+Update the SQL Server connection string in `backend/AgriPro.Api/appsettings.json` as needed.
+
+### Frontend Setup
+
 ```bash
-npm run build
+cd frontend
+
+npm install
+
+npm run dev
 ```
+
+### API Overview
+
+- `/api/users` - User registration and administration
+- `/api/projects` - Investment project tracking
+- `/api/projects/{projectId}/tasks` - Farm task management
+- `/api/projects/{projectId}/expenses` - Expense tracking
+- `/api/investments` - Investor funding records
+- `/api/products` - Marketplace listings
+- `/api/products/{productId}/reports` - Product moderation workflow
 
 ## 🤝 Contribution Guidelines
 
@@ -157,81 +137,18 @@ We welcome contributions from the community! Please follow these guidelines to c
 
 1. **Fork the Repository**
    - Click the "Fork" button on the GitHub repository page
-
 2. **Create a Feature Branch**
-   ```bash
-   git checkout -b feature/your-feature-name
-   ```
-
-3. **Make Your Changes**
-   - Follow the [Code Style Guide](./docs/code-style.md)
-   - Write clear, descriptive commit messages
-   - Add tests for new features
-
-4. **Commit Your Changes**
-   ```bash
-   git commit -am 'Add your feature description'
-   ```
-
-5. **Push to Your Branch**
-   ```bash
-   git push origin feature/your-feature-name
-   ```
-
-6. **Create a Pull Request**
-   - Go to the repository and click "New Pull Request"
-   - Provide a clear description of your changes
-   - Reference any related issues
-
-### Contribution Standards
-
-- **Code Quality**: Ensure all code passes linting and tests
-- **Documentation**: Update documentation for new features or changes
-- **Testing**: Write unit tests and integration tests for new functionality
-- **Commit Messages**: Use clear, descriptive commit messages
-- **Branching**: Use feature branches for new features and bug fixes
-
-### Reporting Issues
-
-If you find a bug or have a suggestion:
-1. Check existing issues to avoid duplicates
-2. Create a new issue with:
-   - Clear title and description
-   - Steps to reproduce (for bugs)
-   - Expected vs actual behavior
-   - Screenshots or logs if applicable
+   - `git checkout -b feature/amazing-feature`
+3. **Commit Your Changes**
+   - `git commit -m 'Add some amazing feature'`
+4. **Push to the Branch**
+   - `git push origin feature/amazing-feature`
+5. **Open a Pull Request**
 
 ## 👥 Team
 
-### Project Management
-- **Management Module**
-  - Abo Elfadl Ramadan
-  - Mohamed Salah
-
-- **Marketplace Module**
-  - Ali Mohsen
-  - Mayar Mohamed
-
-- **Investment Module**
-  - Maram Mahmoud
-  - Fatma Hassan
+Agri-Pro was crafted by a passionate team dedicated to transforming the agricultural landscape.
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
-
-## 📞 Contact & Support
-
-- **Issues**: Use the [GitHub Issues](https://github.com/3li-mo7sen/Agri-Pro/issues) page
-- **Email**: [contact@agri-pro.com](mailto:contact@agri-pro.com)
-- **Documentation**: Visit our [docs](./docs) directory
-
-## 🙏 Acknowledgments
-
-We thank all contributors and the agricultural community for their support in making Agri-Pro a success.
-
----
-
-**Last Updated:** January 3, 2026
-
-Made with ❤️ by the Agri-Pro Team
+This project is licensed under the MIT License.
